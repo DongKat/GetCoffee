@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="myCartVM" type="com.hometesapplication.app.modules.mycart.data.viewmodel.MyCartVM"/>
+    </data>
+    <LinearLayout android:gravity="start" android:id="@+id/linearMyCart"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStylewhite_A700">
+        <ImageView android:id="@+id/imageArrowdown"
+            android:layout_height="@dimen/_13pxh"
+            android:layout_marginEnd="@dimen/_29pxh"
+            android:layout_marginStart="@dimen/_29pxh"
+            android:layout_marginTop="@dimen/_28pxv"
+            android:layout_width="@dimen/_16pxh"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_arrowdown"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_arrowdown"/>
+        <TextView android:ellipsize="end" android:id="@+id/txtTitle"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_33pxh"
+            android:layout_marginStart="@dimen/_33pxh"
+            android:layout_marginTop="@dimen/_27pxv"
+            android:layout_width="wrap_content"
+            android:lineSpacingExtra="@dimen/_10pxh"
+            android:singleLine="true"
+            android:text="My cart"
+            style="@style/txtPoppinsmedium20"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:gravity="start"
+            android:id="@+id/recyclerMyCart"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_34pxv"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            itemSpace="@{@dimen/_35pxh}"/>
+        <LinearLayout android:gravity="start"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Price"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$ 9.00"/>
+            </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Checkout"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

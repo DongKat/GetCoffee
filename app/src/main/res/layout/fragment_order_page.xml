@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".OrderPageFragment">
+    tools:context=".orderFragment">
 
     <RelativeLayout android:id="@+id/frameRedeemRewards"
         android:layout_height="match_parent"
@@ -50,8 +50,7 @@
             android:layout_below="@id/toolbar"
             android:minHeight="?attr/actionBarSize"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-
-            />
+        />
 
         <!-- Add a ViewPager to handle tab fragments -->
         <androidx.viewpager.widget.ViewPager
@@ -59,8 +58,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/tabLayout"
-            />
+        />
 
     </RelativeLayout>
 
-</layout>
+</FrameLayout>

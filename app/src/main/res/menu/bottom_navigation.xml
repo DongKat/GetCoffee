@@ -7,7 +7,7 @@
 
     <item android:title="Redeem"
         android:icon="@drawable/redeem_icon"
-        android:id="@+id/redeemFragment"
+        android:id="@+id/rewardsFragment"
         />
 
     <item android:title="Order"

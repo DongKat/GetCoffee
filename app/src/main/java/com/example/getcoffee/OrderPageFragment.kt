@@ -1,17 +1,18 @@
 package com.example.getcoffee
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 
 
-class orderPage_Fragment : Fragment() {
-    var viewPager: ViewPager? = null
-    var tabLayout: TabLayout? = null
+class OrderPageFragment : Fragment() {
+    private var viewPager: ViewPager? = null
+    private var tabLayout: TabLayout? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,8 +54,6 @@ class orderPage_Fragment : Fragment() {
         adapter.addFragment(ongoingOrderFragment(), "Ongoing Order")
         adapter.addFragment(orderHistoryFragment(), "Order History")
         viewPager.adapter = adapter
-
-
     }
 
 }

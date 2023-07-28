@@ -9,6 +9,7 @@ import androidx.navigation.fragment.NavHostFragment
 
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,8 +22,12 @@ class MainActivity : AppCompatActivity() {
         // Switch fragments
         bottomNav.setupWithNavController(navController)
 
-
-
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.homeFragment, orderPage_Fragment())
+                commit()
+            }
+        }
     }
 }
 

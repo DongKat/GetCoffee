@@ -119,13 +119,13 @@
         <item name="android:textFontWeight" tools:targetApi="p">600</item>
     </style>
     <style name="txtPoppinsregular14">
-        <item name="android:textSize">@dimen/_14pxh</item>
+        <item name="android:textSize">@dimen/_18pxh</item>
         <item name="android:textColor">@color/gray_500</item>
         <item name="android:fontFamily">@font/poppins</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
     </style>
     <style name="txtPoppinsmedium14">
-        <item name="android:textSize">@dimen/_14pxh</item>
+        <item name="android:textSize">@dimen/_20pxh</item>
         <item name="android:textColor">@color/bluegray_100</item>
         <item name="android:fontFamily">@font/poppins</item>
         <item name="android:textFontWeight" tools:targetApi="p">500</item>

@@ -3,9 +3,9 @@ package com.example.getcoffee
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class Profile : AppCompatActivity() {
+class myCartActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile)
+        setContentView(R.layout.activity_my_cart)
     }
 }

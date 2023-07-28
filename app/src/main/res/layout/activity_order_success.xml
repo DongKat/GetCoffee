@@ -44,7 +44,12 @@
                     android:layout_marginStart="@dimen/_18pxh"
                     android:layout_marginTop="@dimen/_16pxv"
                     android:layout_width="match_parent"
-                    android:text="Your order has been placed successfully."
+                    android:text="Your order has been placed successfully"
+                    style="@style/txtPoppinsregular14"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="For more details, go to my orders"
                     style="@style/txtPoppinsregular14"/>
                 <androidx.appcompat.widget.AppCompatButton
                     android:ellipsize="end" android:gravity="center"
@@ -58,8 +63,11 @@
                     android:paddingStart="@dimen/_30pxh"
                     android:paddingTop="@dimen/_12pxv"
                     android:singleLine="true"
-                    android:text="Track My Order"
-                    android:textAllCaps="false"/>
+                    android:text="Track my order"
+                    android:textAllCaps="false"
+                    android:onClick="onTrackMyOrderClicked"
+                    android:textSize="20dp"
+                    style="@style/btnSolidRounded"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

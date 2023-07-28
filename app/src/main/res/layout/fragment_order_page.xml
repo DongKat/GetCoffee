@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    tools:context=".orderPage_Fragment">
 
     <RelativeLayout android:id="@+id/frameRedeemRewards"
         android:layout_height="match_parent"
@@ -35,29 +38,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Reward"
+                android:text="My Orders"
                 style="@style/txtPoppinsmedium22" />
 
         </androidx.appcompat.widget.Toolbar>
 
-        <LinearLayout
-            android:layout_below="@id/toolbar"
-            android:layout_height="wrap_content"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/_34pxv"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
 
-            <!-- TODO: Implement RecyclerView for redeem rewards -->
+            />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:gravity="start"
-                android:id="@+id/recyclerRedeemRewards"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                itemSpace="@{@dimen/_35pxh}" tools:itemCount="3"
-                tools:listitem="@layout/card_coffee_redeem"/>
-        </LinearLayout>
+        <!-- Add a ViewPager to handle tab fragments -->
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tabLayout"
+            />
+
     </RelativeLayout>
-</layout>
+
+</FrameLayout>

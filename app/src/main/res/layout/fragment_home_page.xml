@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".HomePageFragment">
+    tools:context=".homeFragment">
 
     <LinearLayout android:gravity="start"
         android:id="@+id/linearColumncart"
@@ -46,20 +46,22 @@
                         android:text="Anderson"
                         style="@style/txtPoppinsmedium18" />
                 </LinearLayout>
-                <ImageView android:id="@+id/imageCart"
+                <ImageButton android:id="@+id/cartButton"
                     android:layout_height="@dimen/_19pxh"
                     android:layout_marginBottom="@dimen/_17pxv"
                     android:layout_marginTop="@dimen/_9pxv"
                     android:layout_width="@dimen/_20pxh"
+                    android:background="@color/white"
                     android:scaleType="fitXY"
                     android:src="@drawable/img_cart"
                     tools:ignore="ContentDescription" tools:src="@drawable/img_cart" />
-                <ImageView android:id="@+id/imageUser"
+                <ImageButton android:id="@+id/profileButton"
                     android:layout_height="@dimen/_21pxh"
                     android:layout_marginBottom="@dimen/_17pxv"
                     android:layout_marginStart="@dimen/_27pxh"
                     android:layout_marginTop="@dimen/_8pxv"
                     android:layout_width="@dimen/_17pxh"
+                    android:background="@color/white"
                     android:scaleType="fitXY"
                     android:src="@drawable/img_user"
                     tools:ignore="ContentDescription" tools:src="@drawable/img_user" />
@@ -173,4 +175,4 @@
 
 
     </LinearLayout>
-</layout>
+</FrameLayout>

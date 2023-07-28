@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".RewardsPageFragment">
+    tools:context=".rewardsFragment">
     <LinearLayout android:gravity="center_horizontal"
         android:id="@+id/linearColumnline"
         android:layout_height="match_parent"

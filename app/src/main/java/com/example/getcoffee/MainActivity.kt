@@ -15,12 +15,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Bottom navigator
-        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
-
-        // Switch fragments
-        bottomNav.setupWithNavController(navController)
+//        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+//        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+//        val navController = navHostFragment.navController
+//
+//        // Switch fragments
+//        bottomNav.setupWithNavController(navController)
 
     }
 }

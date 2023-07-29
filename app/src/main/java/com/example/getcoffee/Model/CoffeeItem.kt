@@ -30,13 +30,14 @@ public class CoffeeItem()
         this.ice = ice
     }
 
-    constructor(name:String, image:Int) : this() {
+    constructor(name:String?, image:Int?) : this() {
         this.name = name
         this.image = image
     }
 
-    constructor(name: String?, point: Int?) : this() {
+    constructor(name: String?, image:Int?, point: Int?) : this() {
         this.name = name
+        this.image = image
         this.point = point
     }
 }

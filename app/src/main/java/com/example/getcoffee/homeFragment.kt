@@ -2,12 +2,12 @@ package com.example.getcoffee
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -36,7 +36,6 @@ class homeFragment : Fragment() {
 
     private var loyaltyPoints: Int = 0
     private var loyaltyCard: LoyaltyCard? = null
-
 
     private var loyaltyPointsView: RecyclerView? = null
     private var featuredItemsView: RecyclerView? = null
@@ -87,7 +86,7 @@ class homeFragment : Fragment() {
         // Set up coffeeList
         coffeeList = mutableListOf<CoffeeItem>()
         coffeeList!!.add(CoffeeItem("Americano", R.drawable.img_americano))
-        coffeeList!!.add(CoffeeItem("Cappuccino", R.drawable.img_cappucino))
+        coffeeList!!.add(CoffeeItem("Cappuccino", R.drawable.img_cappuccino))
         coffeeList!!.add(CoffeeItem("Mocha", R.drawable.img_mocha))
         coffeeList!!.add(CoffeeItem("Latte", R.drawable.img_latte))
 

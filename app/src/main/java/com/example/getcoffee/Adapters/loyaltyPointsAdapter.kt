@@ -28,7 +28,7 @@ class loyaltyPointsAdapter(list: List<LoyaltyPoint>) : RecyclerView.Adapter<loya
     }
 
     override fun onBindViewHolder(holder: loyaltyPointsViewHolder, position: Int) {
-        holder.loyaltyCupView?.setImageResource(cupList[position].cupImage!!)
+        holder.loyaltyCupView.setImageResource(cupList[position].cupImage!!)
     }
 
 }

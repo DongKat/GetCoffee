@@ -13,23 +13,166 @@
         android:layout_marginTop="@dimen/_38pxv"
         android:layout_width="match_parent"
         android:orientation="vertical" style="@style/groupStylewhite_A700">
+        <androidx.appcompat.widget.Toolbar
+            android:gravity="center_horizontal"
+            android:id="@+id/toolbarToolbar"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_26pxh"
+            android:layout_marginStart="@dimen/_26pxh"
+            android:layout_width="match_parent" app:contentInsetStart="0dp">
+            <LinearLayout android:gravity="start"
+                android:id="@+id/linearRowgoodmorning"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent" android:orientation="horizontal">
+                <LinearLayout android:gravity="start"
+                    android:id="@+id/linearColumngoodmorning"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.87"
+                    android:layout_width="0dp" android:orientation="vertical">
+                    <TextView android:ellipsize="end"
+                        android:id="@+id/txtGoodmorning"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10pxh"
+                        android:layout_width="wrap_content"
+                        android:singleLine="true"
+                        android:text="Good Morning"
+                        style="@style/txtPoppinsmedium14" />
+                    <TextView android:ellipsize="end"
+                        android:id="@+id/txtAnderson"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10pxh"
+                        android:layout_width="wrap_content"
+                        android:singleLine="true"
+                        android:text="Anderson"
+                        style="@style/txtPoppinsmedium18" />
+                </LinearLayout>
+                <ImageButton android:id="@+id/cartButton"
+                    android:layout_height="@dimen/_19pxh"
+                    android:layout_marginBottom="@dimen/_17pxv"
+                    android:layout_marginTop="@dimen/_9pxv"
+                    android:layout_width="@dimen/_20pxh"
+                    android:background="@color/white"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_cart"
+                    tools:ignore="ContentDescription" tools:src="@drawable/img_cart" />
+                <ImageButton android:id="@+id/profileButton"
+                    android:layout_height="@dimen/_21pxh"
+                    android:layout_marginBottom="@dimen/_17pxv"
+                    android:layout_marginStart="@dimen/_27pxh"
+                    android:layout_marginTop="@dimen/_8pxv"
+                    android:layout_width="@dimen/_17pxh"
+                    android:background="@color/white"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_user"
+                    tools:ignore="ContentDescription" tools:src="@drawable/img_user" />
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
 
-        <ImageButton
-            android:id="@+id/cartButton"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:background="@drawable/img_cart">
+        <!--            Loyalty card tray, copied to rewards fragment-->
+        <LinearLayout android:gravity="start"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_18pxv"
+            android:layout_width="match_parent"
+            android:orientation="vertical" style="@style/groupStylewhite_A700">
+            <LinearLayout android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_25pxh"
+                android:layout_marginStart="@dimen/_25pxh"
+                android:layout_width="match_parent"
+                android:orientation="vertical" style="@style/groupStylebluegray_800cornerRadius">
+                <LinearLayout android:id="@+id/linearRowloyaltycard"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_23pxh"
+                    android:layout_marginStart="@dimen/_23pxh"
+                    android:layout_marginTop="@dimen/_13pxv"
+                    android:layout_width="match_parent" android:orientation="horizontal">
+                    <TextView android:ellipsize="end"
+                        android:id="@+id/txtLoyaltycard"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2pxv"
+                        android:layout_weight="0.72"
+                        android:layout_width="0dp"
+                        android:singleLine="true"
+                        android:text="Loyalty card"
+                        style="@style/txtPoppinsmedium14" />
+                    <TextView
+                        android:id="@+id/cupScore"
+                        style="@style/txtPoppinsmedium14"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_141pxh"
+                        android:layout_marginBottom="@dimen/_2pxv"
+                        android:layout_weight="0.28"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="4/8" />
+                </LinearLayout>
 
-        </ImageButton>
+                <!-- TODO: Implement RecyclerView for loyalty card -->
 
-        <ImageButton
-            android:id="@+id/profileButton"
-            android:layout_width="200dp"
-            android:layout_height="200dp"/>
+                <FrameLayout android:id="@+id/frameStackgroup7011"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="@dimen/_61pxv"
+                    android:layout_marginBottom="@dimen/_17pxv"
+                    android:layout_marginEnd="@dimen/_23pxh"
+                    android:layout_marginStart="@dimen/_23pxh"
+                    android:layout_marginTop="@dimen/_7pxv"
+                    android:layout_width="@dimen/_279pxh"
+                    style="@style/groupStylewhite_A700cornerRadius">
+                    <androidx.recyclerview.widget.RecyclerView android:id="@+id/cupCounter"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_height="@dimen/_61pxv"
+                        android:layout_marginBottom="@dimen/_17pxv"
+                        android:layout_marginEnd="@dimen/_23pxh"
+                        android:layout_marginStart="@dimen/_23pxh"
+                        android:layout_marginTop="@dimen/_7pxv"
+                        android:layout_width="@dimen/_279pxh"
+                        style="@style/groupStylewhite_A700cornerRadius">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+                </FrameLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearCoffeeFrame"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_38pxv"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            style="@style/groupStylebluegray_1"
+            >
+
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtChooseyourcoffee"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_31pxh"
+                android:layout_marginStart="@dimen/_31pxh"
+                android:layout_marginTop="@dimen/_25pxv"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="Choose your coffee"
+                style="@style/txtPoppinsmedium16" />
+
+            <!-- TODO: Implement RecyclerView for coffee items in grid layout (WIP)-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/coffeeList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_25pxv"
+                android:layout_marginBottom="@dimen/_25pxv"
+                android:layout_marginEnd="@dimen/_31pxh"
+                android:layout_marginStart="@dimen/_31pxh"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:listitem="@layout/card_coffee_item"
+                />
+
+
+        </LinearLayout>
 
 
     </LinearLayout>
-        <!--            Loyalty card tray, copied to rewards fragment-->
-
-
 </FrameLayout>

@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
+import android.widget.ImageView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,10 +18,10 @@ private const val ARG_PARAM2 = "param2"
  * Use the [homeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class homeFragment : Fragment(){
+class homeFragment : Fragment() {
 
-    private var profileButton: ImageButton? = null;
-    private var cartButton: ImageButton? = null;
+    private var profileButton: ImageView? = null;
+    private var cartButton: ImageView? = null;
 
     private var List: ArrayList<coffeeCatalogue>? = null
 
@@ -29,31 +29,30 @@ class homeFragment : Fragment(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-arguments?.let {
-            loyaltyPoints = it.getInt("loyaltyPoints")
+        arguments?.let {
+
+            profileButton = view?.findViewById(R.id.profileButton)
+            cartButton = view?.findViewById(R.id.cartButton)
+
         }
-
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val fragView = inflater.inflate(R.layout.fragment_home_page, container, false)
-
-        profileButton = fragView.findViewById(R.id.profileButton)
-        cartButton = fragView.findViewById(R.id.cartButton)
 
         profileButton?.setOnClickListener {
             val intent = Intent(activity, ProfileActivity::class.java)
             startActivity(intent)
         }
-
         cartButton?.setOnClickListener {
             val intent = Intent(activity, myCartActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
 
-        return fragView
+
+
         // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_home_page, container, false)
     }
 
     companion object {

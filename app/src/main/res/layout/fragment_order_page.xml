@@ -49,17 +49,20 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/toolbar"
             android:minHeight="?attr/actionBarSize"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
-            />
 
-        <!-- Add a ViewPager to handle tab fragments -->
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPager"
+        <!-- Add a recyler view-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerMyOrders"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@id/tabLayout"
-            />
+            android:layout_marginTop="@dimen/_14pxh"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            itemSpace="@{@dimen/_35pxh}"
+            tools:itemCount="3" />
 
     </RelativeLayout>
 

@@ -2,15 +2,16 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MyCartActivity"
+    tools:context=".myCartActivity"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
-    <LinearLayout android:gravity="start" android:id="@+id/linearMyCart"
+    <RelativeLayout android:gravity="start" android:id="@+id/linearMyCart"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="vertical"
         style="@style/groupStylewhite_A700">
         <androidx.appcompat.widget.Toolbar
+            android:layout_alignParentTop="true"
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -26,7 +27,7 @@
                 android:src="@drawable/img_arrowdown"
                 android:layout_gravity="start"
                 android:padding="8dp"
-                android:onClick="onBackButtonClicked"/>
+                android:onClick="onBackButtonClicked" />
 
             <!-- Center the title text in a TextView -->
             <TextView
@@ -40,6 +41,7 @@
 
         <!-- TODO: Add RecyclerView here -->
         <LinearLayout
+            android:layout_below="@id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_14pxh">
@@ -52,15 +54,13 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 itemSpace="@{@dimen/_35pxh}"
                 tools:itemCount="3"
-                tools:listitem="@layout/card_my_cart"/>
+                tools:listitem="@layout/card_my_cart" />
 
         </LinearLayout>
 
 
-
-
-
         <LinearLayout android:gravity="start"
+            android:layout_alignParentBottom="true"
             android:id="@+id/linearRowtotalprice"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_32pxv"
@@ -71,14 +71,15 @@
             <LinearLayout android:gravity="start"
                 android:id="@+id/linearColumntotalprice"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.48" android:layout_width="0dp" android:orientation="vertical">
+                android:layout_weight="0.48" android:layout_width="0dp"
+                android:orientation="vertical">
                 <TextView android:ellipsize="end"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_10pxh"
                     android:layout_width="wrap_content"
                     android:singleLine="true"
                     android:text="Total Price"
-                    style="@style/txtPoppinsmedium12_2"/>
+                    style="@style/txtPoppinsmedium12_2" />
                 <TextView android:ellipsize="end"
                     android:id="@+id/txtTotalPrice"
                     android:layout_height="wrap_content"
@@ -87,23 +88,19 @@
                     android:layout_width="wrap_content"
                     android:singleLine="true"
                     android:text="$ 3.00"
-                    style="@style/txtPoppinssemibold22"/>
+                    style="@style/txtPoppinssemibold22" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_height="wrap_content"
-                android:layout_weight="0.52" android:layout_width="0dp"
-                android:orientation="horizontal" style="@style/groupStylebluegray_2">
-                <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:text="Checkout"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/poppins"
-                    android:background="">
-                </androidx.appcompat.widget.AppCompatButton>
-            </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.52"
+                android:layout_gravity="bottom"
+                android:text="Checkout"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins"
+                style="@style/groupStylebluegray_2"/>
+
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 </FrameLayout>

@@ -10,7 +10,6 @@ import com.google.android.material.tabs.TabLayout
 
 
 class orderFragment : Fragment() {
-    private var viewPager: ViewPager? = null
     private var tabLayout: TabLayout? = null
 
 
@@ -21,7 +20,6 @@ class orderFragment : Fragment() {
         // Inflate the layout for this fragment
 
         val view = inflater.inflate(R.layout.fragment_order_page, container, false)
-        viewPager = view.findViewById(R.id.viewPager)
         tabLayout = view.findViewById(R.id.tabLayout)
 
         return view

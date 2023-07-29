@@ -31,10 +31,17 @@ class homeFragment : Fragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
 
-            profileButton = view?.findViewById(R.id.profileButton)
-            cartButton = view?.findViewById(R.id.cartButton)
+
 
         }
+
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val fragView = inflater.inflate(R.layout.fragment_home_page, container, false)
+
+        profileButton = fragView.findViewById(R.id.profileButton)
+        cartButton = fragView.findViewById(R.id.cartButton)
 
         profileButton?.setOnClickListener {
             val intent = Intent(activity, ProfileActivity::class.java)
@@ -44,15 +51,11 @@ class homeFragment : Fragment() {
             val intent = Intent(activity, myCartActivity::class.java)
             startActivity(intent)
         }
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
 
 
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_page, container, false)
+        return fragView
     }
 
     companion object {

@@ -7,8 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.Toast
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,7 +42,7 @@ arguments?.let {
         cartButton = fragView.findViewById(R.id.cartButton)
 
         profileButton?.setOnClickListener {
-            val intent = Intent(activity, profileActivity::class.java)
+            val intent = Intent(activity, ProfileActivity::class.java)
             startActivity(intent)
         }
 

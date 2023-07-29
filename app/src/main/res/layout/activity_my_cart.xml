@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MyCartActivity">
+    tools:context=".MyCartActivity"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
     <LinearLayout android:gravity="start" android:id="@+id/linearMyCart"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
@@ -92,27 +94,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.52" android:layout_width="0dp"
                 android:orientation="horizontal" style="@style/groupStylebluegray_2">
-                <ImageView
-                    android:layout_height="@dimen/_18pxh"
-                    android:layout_marginBottom="@dimen/_16pxv"
-                    android:layout_marginStart="@dimen/_31pxh"
-                    android:layout_marginTop="@dimen/_17pxv"
-                    android:layout_width="@dimen/_18pxh"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_cart_white_a700"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_cart_white_a700"/>
-                <TextView android:ellipsize="end"
-                    android:id="@+id/txtCheckout"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_16pxv"
-                    android:layout_marginEnd="@dimen/_28pxh"
-                    android:layout_marginStart="@dimen/_14pxh"
-                    android:layout_marginTop="@dimen/_14pxv"
-                    android:layout_weight="0.79"
-                    android:layout_width="0dp" android:singleLine="true"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:text="Checkout"
-                    style="@style/txtPoppinssemibold14"/>
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins"
+                    android:background="">
+                </androidx.appcompat.widget.AppCompatButton>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</layout>
+</FrameLayout>

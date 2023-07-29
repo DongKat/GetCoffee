@@ -9,27 +9,26 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.getcoffee.Model.CoffeeItem
 import com.example.getcoffee.R
 
-class featuredItemsAdapter(private val foodList: List<CoffeeItem>) : RecyclerView.Adapter<featuredItemsAdapter.ViewHolder>() {
-    var coffeeList: ArrayList<CoffeeItem>? = null
+class featuredItemsAdapter(private val coffee: List<CoffeeItem>) : RecyclerView.Adapter<featuredItemsAdapter.featuredItemsViewHolder>() {
+    var coffeeList: ArrayList<CoffeeItem>? = coffee as ArrayList<CoffeeItem>?
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.card_coffee_item, parent, false)
-        return ViewHolder(v)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): featuredItemsViewHolder {
+        return featuredItemsViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card_featured_coffee, parent, false))
     }
 
     override fun getItemCount(): Int {
         return coffeeList!!.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val tmpcoffee = coffeeList!![position]
-        holder.coffeeImage?.setImageResource(tmpcoffee.image!!)
-        holder.coffeeName?.text = tmpcoffee.name
+    override fun onBindViewHolder(holder: featuredItemsViewHolder, position: Int) {
+        holder.coffeeImage?.setImageResource(coffeeList!![position].image!!)
+        holder.coffeeName?.text = coffeeList!![position].name
 
     }
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var coffeeImage: ImageView? = itemView.findViewById(R.id.imageCoffee)
-        var coffeeName: TextView? = itemView.findViewById(R.id.txtCoffee)
+    class featuredItemsViewHolder (view: View): RecyclerView.ViewHolder(view){
+        var coffeeImage: ImageView? = view.findViewById(R.id.imageCoffee)
+        var coffeeName: TextView? = view.findViewById(R.id.txtCoffee)
     }
 
 }

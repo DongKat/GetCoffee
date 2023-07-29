@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.getcoffee.Adapters.featuredItemsAdapter
@@ -34,40 +35,20 @@ class homeFragment : Fragment() {
 
 
     private var loyaltyPoints: Int = 0
-
-    private var loyaltyPointsView: RecyclerView? = null
-    private var adapter1: loyaltyPointsAdapter? = null
-
-    private var featuredItemsView: RecyclerView? = null
-    private var adapter2: featuredItemsAdapter? = null
-
-
-    private var coffeeList: ArrayList<CoffeeItem>? = null
-    private var LoyaltyPoints: MutableList<LoyaltyPoint>? = null
-
     private var loyaltyCard: LoyaltyCard? = null
 
+
+    private var loyaltyPointsView: RecyclerView? = null
+    private var featuredItemsView: RecyclerView? = null
     private var cupCounterView: TextView? = null
 
-    private fun setLoyaltyCardRecycler() {
 
-
-
-    }
-
-    private fun setFeaturedItemsRecycler() {
-
-
-    }
+    private var coffeeList: MutableList<CoffeeItem>? = null
+    private var LoyaltyPoints: MutableList<LoyaltyPoint>? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-
-
-
     }
 
 
@@ -91,11 +72,8 @@ class homeFragment : Fragment() {
             } else LoyaltyPoints!!.add(LoyaltyPoint(R.drawable.img_dark_coffee_cup))
         }
 
-        val linearLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        adapter1 = loyaltyPointsAdapter(LoyaltyPoints!!)
+        setLoyaltyCardRecycler(LoyaltyPoints)
 
-        loyaltyPointsView?.layoutManager = linearLayoutManager
-        loyaltyPointsView?.adapter = adapter1
 
         // LoyaltyCard initialize cup counter
         cupCounterView = fragView.findViewById(R.id.cupCounterView)
@@ -103,12 +81,17 @@ class homeFragment : Fragment() {
             "${loyaltyCard!!.curPoint.toString()}" + " / " + "${loyaltyCard!!.maxPoint.toString()}"
 
 
+        // FeaturedItems initialize recycler views
+        featuredItemsView = fragView.findViewById(R.id.featuredItemsView)
 
+        // Set up coffeeList
+        coffeeList = mutableListOf<CoffeeItem>()
+        coffeeList!!.add(CoffeeItem("Americano", R.drawable.img_americano))
+        coffeeList!!.add(CoffeeItem("Cappuccino", R.drawable.img_cappucino))
+        coffeeList!!.add(CoffeeItem("Mocha", R.drawable.img_mocha))
+        coffeeList!!.add(CoffeeItem("Latte", R.drawable.img_latte))
 
-//        // FeaturedItems initialize recycler views
-//        featuredItemsView = fragView.findViewById(R.id.featuredItemsView)
-//        featuredItemsView = view?.findViewById(R.id.featuredItemsView)
-//        adapter2 = featuredItemsAdapter(coffeeList!!)
+        setFeaturedItemsRecycler(coffeeList)
 
 
         // Toolbar buttons and hooking up listeners
@@ -147,5 +130,22 @@ class homeFragment : Fragment() {
             }
         }
     }
+
+    private fun setLoyaltyCardRecycler(LoyaltyPoints: MutableList<LoyaltyPoint>? = null) {
+        val linearLayoutManager =
+            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        val adapter = loyaltyPointsAdapter(LoyaltyPoints!!)
+        loyaltyPointsView?.layoutManager = linearLayoutManager
+        loyaltyPointsView?.adapter = adapter
+    }
+
+    private fun setFeaturedItemsRecycler(coffeeList: MutableList<CoffeeItem>? = null) {
+        val gridLayoutManager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
+        val adapter = featuredItemsAdapter(coffeeList!!)
+        featuredItemsView?.layoutManager = gridLayoutManager
+        featuredItemsView?.adapter = adapter
+
+    }
+
 }
 

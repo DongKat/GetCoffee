@@ -180,7 +180,7 @@
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="2"
-                tools:listitem="@layout/card_coffee_item"
+                tools:listitem="@layout/card_featured_coffee"
                 />
 
 

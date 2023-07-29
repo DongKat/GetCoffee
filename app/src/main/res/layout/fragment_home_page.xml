@@ -102,7 +102,7 @@
                         android:text="Loyalty card"
                         style="@style/txtPoppinsmedium14" />
                     <TextView
-                        android:id="@+id/cupScore"
+                        android:id="@+id/cupCounterView"
                         style="@style/txtPoppinsmedium14"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -111,7 +111,9 @@
                         android:layout_weight="0.28"
                         android:ellipsize="end"
                         android:singleLine="true"
-                        android:text="4/8" />
+                        android:text="4/8"
+                        tools:text="4/8" />
+                        />
                 </LinearLayout>
 
                 <!-- TODO: Implement RecyclerView for loyalty card -->
@@ -125,7 +127,8 @@
                     android:layout_marginTop="@dimen/_7pxv"
                     android:layout_width="@dimen/_279pxh"
                     style="@style/groupStylewhite_A700cornerRadius">
-                    <androidx.recyclerview.widget.RecyclerView android:id="@+id/cupCounter"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/loyaltyPointsView"
                         android:layout_gravity="center_horizontal"
                         android:layout_height="@dimen/_61pxv"
                         android:layout_marginBottom="@dimen/_17pxv"
@@ -133,6 +136,10 @@
                         android:layout_marginStart="@dimen/_23pxh"
                         android:layout_marginTop="@dimen/_7pxv"
                         android:layout_width="@dimen/_279pxh"
+
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+
                         style="@style/groupStylewhite_A700cornerRadius">
 
                     </androidx.recyclerview.widget.RecyclerView>
@@ -163,7 +170,7 @@
             <!-- TODO: Implement RecyclerView for coffee items in grid layout (WIP)-->
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/coffeeList"
+                android:id="@+id/featuredItemsView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_25pxv"

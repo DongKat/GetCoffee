@@ -65,24 +65,51 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/img_user_bluegray_800"
                     tools:ignore="ContentDescription" />
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_weight="0.2">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/txtFullNameLabel"
                         style="@style/txtPoppinsmedium10_2"
-                        android:text="Fullname" />
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        style="@style/txtPoppinssemibold14_1"
-                        android:text="Anderson" />
+                        android:layout_alignParentTop="true"
+                        android:text="Fullname"
+                        app:layout_constraintStart_toStartOf="parent"
 
-                </LinearLayout>
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtFullName"
+                        style="@style/txtPoppinssemibold14_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_below="@+id/txtFullNameLabel"
+                        android:text="Anderson"
+
+                        android:visibility="visible"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtFullNameLabel" />
+                    <EditText
+                        android:id="@+id/edtFullName"
+                        android:imeOptions="actionDone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="Anderson"
+                        android:visibility="gone"
+
+                        android:layout_below="@+id/txtFullNameLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtFullNameLabel" />
+
+
+
+                </RelativeLayout>
 
                 <ImageView
                     android:id="@+id/btnEditName"
@@ -91,7 +118,6 @@
                     android:layout_gravity="end"
                     android:layout_marginStart="@dimen/_20pxh"
                     android:layout_marginEnd="@dimen/_20pxh"
-                    android:onClick="onEditButtonClicked"
                     android:padding="8dp"
                     android:src="@drawable/img_edit" />
 
@@ -115,25 +141,50 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/img_call" tools:ignore="ContentDescription" />
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_weight="0.2">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/txtPhoneNumberLabel"
                         style="@style/txtPoppinsmedium10_2"
-                        android:text="Phone number" />
-
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        style="@style/txtPoppinssemibold14_1"
-                        android:text="(+62) 134 589 0525" />
+                        android:layout_alignParentTop="true"
+                        android:text="Phone number"
+                        app:layout_constraintStart_toStartOf="parent"
 
-                </LinearLayout>
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtPhoneNumber"
+                        style="@style/txtPoppinssemibold14_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="(123) 456-7890"
+                        android:visibility="visible"
+
+                        android:layout_below="@+id/txtPhoneNumberLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPhoneNumberLabel" />
+                    <EditText
+                        android:id="@+id/edtPhoneNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="Anderson"
+                        android:visibility="gone"
+
+                        android:layout_below="@+id/txtPhoneNumberLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPhoneNumberLabel" />
+
+
+
+                </RelativeLayout>
 
                 <ImageView
                     android:id="@+id/btnEditPhone"
@@ -142,7 +193,6 @@
                     android:layout_gravity="end"
                     android:layout_marginStart="@dimen/_20pxh"
                     android:layout_marginEnd="@dimen/_20pxh"
-                    android:onClick="onEditButtonClicked"
                     android:padding="8dp"
                     android:src="@drawable/img_edit" />
 
@@ -166,24 +216,50 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/img_email"
                     tools:ignore="ContentDescription" />
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_weight="0.2">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/txtEmailLabel"
                         style="@style/txtPoppinsmedium10_2"
-                        android:text="Email" />
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        style="@style/txtPoppinssemibold14_1"
-                        android:text="Anderson@email.com" />
+                        android:layout_alignParentTop="true"
+                        android:text="Email"
+                        app:layout_constraintStart_toStartOf="parent"
 
-                </LinearLayout>
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtEmail"
+                        style="@style/txtPoppinssemibold14_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="anderson@email.com"
+                        android:visibility="visible"
+
+                        android:layout_below="@+id/txtEmailLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEmailLabel" />
+                    <EditText
+                        android:id="@+id/edtEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="Anderson"
+                        android:visibility="gone"
+
+                        android:layout_below="@+id/txtEmailLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEmailLabel" />
+
+
+
+                </RelativeLayout>
 
                 <ImageView
                     android:id="@+id/btnEditEmail"
@@ -192,7 +268,6 @@
                     android:layout_gravity="end"
                     android:layout_marginStart="@dimen/_20pxh"
                     android:layout_marginEnd="@dimen/_20pxh"
-                    android:onClick="onEditButtonClicked"
                     android:padding="8dp"
                     android:src="@drawable/img_edit" />
 
@@ -216,24 +291,50 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/img_location"
                     tools:ignore="ContentDescription" />
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_weight="0.2">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/txtAddressLabel"
                         style="@style/txtPoppinsmedium10_2"
-                        android:text="Address" />
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        style="@style/txtPoppinssemibold14_1"
-                        android:text="3 Addersion Court Chino Hills, US" />
+                        android:layout_alignParentTop="true"
+                        android:text="Address"
+                        app:layout_constraintStart_toStartOf="parent"
 
-                </LinearLayout>
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtAddress"
+                        style="@style/txtPoppinssemibold14_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="1234, Main Street, New York, USA"
+                        android:visibility="visible"
+
+                        android:layout_below="@+id/txtAddressLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtAddressLabel" />
+                    <EditText
+                        android:id="@+id/edtAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="Anderson"
+                        android:visibility="gone"
+
+                        android:layout_below="@+id/txtAddressLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtAddressLabel" />
+
+
+
+                </RelativeLayout>
 
                 <ImageView
                     android:id="@+id/btnEditAddress"
@@ -242,7 +343,6 @@
                     android:layout_gravity="end"
                     android:layout_marginStart="@dimen/_20pxh"
                     android:layout_marginEnd="@dimen/_20pxh"
-                    android:onClick="onEditButtonClicked"
                     android:padding="8dp"
                     android:src="@drawable/img_edit" />
 

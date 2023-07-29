@@ -1,11 +1,11 @@
 package com.example.getcoffee
 
-import androidx.appcompat.app.AppCompatActivity
+import  androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class orderSucessActivity: AppCompatActivity() {
+class RedeemRewardsActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_my_cart)
+        setContentView(R.layout.activity_redeem_rewards)
     }
 }

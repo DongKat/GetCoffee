@@ -3,29 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <ImageView
-        android:id="@+id/imageCoffee"
-        android:layout_width="@dimen/_100pxh"
-        android:layout_height="@dimen/_100pxh"
-        android:scaleType="fitXY"
-        android:src="@drawable/img_americano"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/imageCoffee"
+            android:layout_height="@dimen/_90pxh"
+            android:layout_marginEnd="@dimen/_20pxh"
+            android:layout_marginStart="@dimen/_20pxh"
+            android:layout_marginTop="@dimen/_20pxv"
+            android:layout_width="@dimen/_120pxh"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_americano"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
-            android:layout_width="wrap_content"
+            style="@style/txtDMSansmedium14"
+            android:id="@+id/txtCoffee"
             android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="@dimen/_27pxv"
+            android:layout_marginEnd="@dimen/_22pxh"
+            android:layout_marginStart="@dimen/_22pxh"
+            android:layout_marginTop="@dimen/_12pxv"
+
+
+            android:layout_below="@id/imageCoffee"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-
-
-            android:text="Americano"
-            style="@style/txtDMSansmedium14"/>
-    </LinearLayout>
+            android:text="Americano" />
+    </RelativeLayout>
 
 
 </androidx.cardview.widget.CardView>

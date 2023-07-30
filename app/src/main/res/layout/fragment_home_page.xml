@@ -86,7 +86,7 @@
                 android:layout_marginStart="@dimen/_25pxh"
                 android:layout_width="match_parent"
                 android:orientation="vertical" style="@style/groupStylebluegray_800cornerRadius">
-                <LinearLayout android:id="@+id/linearRowloyaltycard"
+                <RelativeLayout android:id="@+id/linearRowloyaltycard"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_23pxh"
                     android:layout_marginStart="@dimen/_23pxh"
@@ -95,43 +95,41 @@
                     <TextView android:ellipsize="end"
                         android:id="@+id/txtLoyaltycard"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_2pxv"
-                        android:layout_weight="0.72"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentLeft="true"
                         android:text="Loyalty card"
                         style="@style/txtPoppinsmedium14" />
                     <TextView
                         android:id="@+id/cupCounterView"
                         style="@style/txtPoppinsmedium14"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_141pxh"
-                        android:layout_marginBottom="@dimen/_2pxv"
-                        android:layout_weight="0.5"
+                        android:layout_alignParentRight="true"
                         android:ellipsize="end"
                         android:text="0/8" />
-                </LinearLayout>
+                </RelativeLayout>
 
                 <!-- TODO: Implement RecyclerView for loyalty card -->
 
-                <FrameLayout android:id="@+id/frameStackgroup7011"
+                <androidx.cardview.widget.CardView android:id="@+id/frameStackgroup7011"
                     android:layout_gravity="center_horizontal"
-                    android:layout_height="@dimen/_61pxv"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_17pxv"
                     android:layout_marginEnd="@dimen/_23pxh"
                     android:layout_marginStart="@dimen/_23pxh"
                     android:layout_marginTop="@dimen/_7pxv"
-                    android:layout_width="@dimen/_279pxh"
+                    android:layout_width="match_parent"
+                    app:cardCornerRadius="10dp"
                     style="@style/groupStylewhite_A700cornerRadius">
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/loyaltyPointsView"
                         android:layout_gravity="center_horizontal"
-                        android:layout_height="@dimen/_61pxv"
-                        android:layout_marginBottom="@dimen/_17pxv"
+                        android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/_23pxh"
                         android:layout_marginStart="@dimen/_23pxh"
-                        android:layout_marginTop="@dimen/_7pxv"
-                        android:layout_width="@dimen/_279pxh"
+                        android:paddingVertical="@dimen/_10pxh"
+                        android:paddingBottom="@dimen/_10pxh"
+                        android:layout_width="match_parent"
 
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         tools:listitem="@layout/card_loyalty_coffee_cup"
@@ -140,7 +138,7 @@
                         style="@style/groupStylewhite_A700cornerRadius">
 
                     </androidx.recyclerview.widget.RecyclerView>
-                </FrameLayout>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
         </LinearLayout>

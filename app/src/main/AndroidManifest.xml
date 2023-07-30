@@ -30,10 +30,10 @@
             android:name=".RedeemRewardsActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MyCartActivity"
             android:exported="false" />
         <activity
-            android:name=".MyCartActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

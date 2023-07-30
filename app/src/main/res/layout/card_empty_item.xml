@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="invisible">
+
+    <!--Just reward history but invisible -->
+
+    <LinearLayout
+        android:id="@+id/linearRowamericano"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6pxh"
+        android:layout_marginTop="@dimen/_22pxv"
+        android:layout_marginEnd="@dimen/_19pxh"
+        android:gravity="start"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/linearColumnamericano"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.81"
+            android:gravity="start"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtCoffeeName"
+                style="@style/txtPoppinsmedium12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="Americano" />
+
+            <TextView
+                android:id="@+id/txtRewardDate"
+                style="@style/txtPoppinsmedium10_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5pxv"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="24 june 12:30PM" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtRewardPoints"
+            style="@style/txtPoppinsmedium16_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4pxv"
+            android:layout_marginBottom="@dimen/_9pxv"
+            android:layout_weight="0.19"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="+ 12 Pts" />
+    </LinearLayout>
+
+</FrameLayout>

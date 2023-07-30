@@ -61,11 +61,11 @@ class homeFragment : Fragment() {
         loyaltyPointsView = fragView.findViewById(R.id.loyaltyPointsView)
 
         // LoyaltyCard stuffs initializing
-        loyaltyCard = LoyaltyCard(2, 8)
+        loyaltyCard = LoyaltyCard(0, 8, 0)
 
         LoyaltyPoints = mutableListOf<LoyaltyPoint>()
-        for (i in 1..loyaltyCard!!.maxPoint!!) {
-            if (i <= loyaltyCard!!.curPoint!!) {
+        for (i in 1..loyaltyCard!!.maxPoint) {
+            if (i <= loyaltyCard!!.curPoint) {
                 LoyaltyPoints!!.add(LoyaltyPoint(R.drawable.img_light_coffee_cup))
 
             } else LoyaltyPoints!!.add(LoyaltyPoint(R.drawable.img_dark_coffee_cup))
@@ -77,7 +77,7 @@ class homeFragment : Fragment() {
         // LoyaltyCard initialize cup counter
         cupCounterView = fragView.findViewById(R.id.cupCounterView)
         cupCounterView?.text =
-            "${loyaltyCard!!.curPoint.toString()}" + " / " + "${loyaltyCard!!.maxPoint.toString()}"
+            loyaltyCard!!.curPoint.toString() + " / " + "${loyaltyCard!!.maxPoint.toString()}"
 
 
         // FeaturedItems initialize recycler views

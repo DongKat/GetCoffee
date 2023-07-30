@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -98,7 +98,6 @@
                         android:layout_marginTop="@dimen/_2pxv"
                         android:layout_weight="0.72"
                         android:layout_width="0dp"
-                        android:singleLine="true"
                         android:text="Loyalty card"
                         style="@style/txtPoppinsmedium14" />
                     <TextView
@@ -108,12 +107,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_141pxh"
                         android:layout_marginBottom="@dimen/_2pxv"
-                        android:layout_weight="0.28"
+                        android:layout_weight="0.5"
                         android:ellipsize="end"
-                        android:singleLine="true"
-                        android:text="4/8"
-                        tools:text="4/8" />
-                        />
+                        android:text="0/8" />
                 </LinearLayout>
 
                 <!-- TODO: Implement RecyclerView for loyalty card -->
@@ -138,7 +134,8 @@
                         android:layout_width="@dimen/_279pxh"
 
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-
+                        tools:listitem="@layout/card_loyalty_coffee_cup"
+                        tools:orientation="horizontal"
 
                         style="@style/groupStylewhite_A700cornerRadius">
 
@@ -188,4 +185,4 @@
 
 
     </LinearLayout>
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

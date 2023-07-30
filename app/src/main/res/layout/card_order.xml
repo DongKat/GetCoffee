@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,8 +34,8 @@
 
                 <TextView
                     style="@style/txtPoppinsmedium16_2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="6dp"
+                    android:layout_height="31dp"
                     android:layout_marginStart="@dimen/_163pxh"
                     android:layout_marginTop="@dimen/_1pxv"
                     android:layout_weight="0.33"
@@ -111,4 +112,4 @@
 
         </LinearLayout>
     </LinearLayout>
-</layout>
+</FrameLayout>

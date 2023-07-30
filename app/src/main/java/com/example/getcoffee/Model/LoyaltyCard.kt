@@ -2,9 +2,10 @@ package com.example.getcoffee.Model
 
 import android.annotation.SuppressLint
 
-class LoyaltyCard(cur: Int,  max: Int) {
+class LoyaltyCard(cur: Int,  max: Int, totalPoint: Int) {
     var curPoint:Int = cur
     var maxPoint:Int = max
+    var totalPoint:Int = totalPoint
 
     // A list to mark which cups to be faded
     var ListOfPoints:ArrayList<Int>? = null
@@ -14,6 +15,7 @@ class LoyaltyCard(cur: Int,  max: Int) {
         for (i in 0..maxPoint!!) {
             ListOfPoints?.add(0)
         }
+        this.totalPoint = 0
     }
 
     fun increasePoint() {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".rewardFragment"
@@ -56,34 +56,40 @@
                             android:text="Loyalty card"
                             style="@style/txtPoppinsmedium14" />
                         <TextView android:ellipsize="end"
-                            android:id="@+id/txtFortyEight"
+                            android:id="@+id/cupCounter"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/_2pxv"
                             android:layout_marginStart="@dimen/_143pxh"
                             android:layout_weight="0.28"
                             android:layout_width="0dp"
                             android:singleLine="true"
-                            android:text="4/8"
+                            android:text="0/8"
                             style="@style/txtPoppinsmedium14" />
                     </LinearLayout>
                     <FrameLayout android:id="@+id/frameStackgroup7011"
                         android:layout_gravity="center_horizontal"
-                        android:layout_height="@dimen/_61pxv"
+                        android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/_17pxv"
                         android:layout_marginEnd="@dimen/_23pxh"
                         android:layout_marginStart="@dimen/_23pxh"
                         android:layout_marginTop="@dimen/_7pxv"
                         android:layout_width="@dimen/_279pxh"
                         style="@style/groupStylewhite_A700cornerRadius">
-                        <androidx.recyclerview.widget.RecyclerView android:id="@+id/cupCounter"
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/loyaltyCupsView"
+                            style="@style/groupStylewhite_A700cornerRadius"
+                            android:layout_width="@dimen/_279pxh"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:layout_height="@dimen/_61pxv"
-                            android:layout_marginBottom="@dimen/_17pxv"
-                            android:layout_marginEnd="@dimen/_23pxh"
                             android:layout_marginStart="@dimen/_23pxh"
                             android:layout_marginTop="@dimen/_7pxv"
-                            android:layout_width="@dimen/_279pxh"
-                            style="@style/groupStylewhite_A700cornerRadius">
+                            android:layout_marginEnd="@dimen/_23pxh"
+                            android:layout_marginBottom="@dimen/_17pxv"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:listitem="@layout/card_loyalty_coffee_cup"
+                            tools:orientation="horizontal"
+                            >
 
                         </androidx.recyclerview.widget.RecyclerView>
                     </FrameLayout>
@@ -109,7 +115,6 @@
                             android:layout_weight="0.66"
                             android:layout_width="0dp" android:orientation="vertical">
                             <TextView android:ellipsize="end"
-                                android:id="@+id/txtMyPoints"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="@dimen/_10pxh"
                                 android:layout_width="wrap_content"
@@ -117,32 +122,37 @@
                                 android:text="My points:"
                                 style="@style/txtPoppinsmedium14" />
                             <TextView android:ellipsize="end"
-                                android:id="@+id/txtZipcode"
+                                android:id="@+id/txtTotalPoints"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="@dimen/_10pxh"
                                 android:layout_width="wrap_content"
                                 android:singleLine="true"
-                                android:text="2750"
+                                android:text="0"
                                 style="@style/txtPoppinsmedium24" />
                         </LinearLayout>
                         <FrameLayout
-                            android:id="@+id/frameStackredeemdrinks"
+                            android:id="@+id/btnRedeemDrinks"
                             android:layout_height="@dimen/_28pxv"
                             android:layout_marginBottom="@dimen/_40pxv"
                             android:layout_marginEnd="@dimen/_23pxh"
-                            android:layout_marginTop="@dimen/_40pxv"
-                            android:layout_width="@dimen/_93pxh">
-                            <androidx.appcompat.widget.AppCompatButton android:ellipsize="end"
-                                android:background="@drawable/rectangle_bg_blue_200_30_radius_5"
-                                android:gravity="center_horizontal|center_vertical"
-                                android:id="@+id/btnRedeemDrinks"
-                                android:layout_gravity="start"
-                                android:layout_height="@dimen/_28pxh"
-                                android:layout_width="@dimen/_93pxh"
+                            android:layout_marginTop="@dimen/_40pxv" android:layout_width="@dimen/_93pxh">
+                            <TextView android:ellipsize="end"
+                                android:gravity="top|start"
+                                android:layout_gravity="center"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_6pxv"
+                                android:layout_marginEnd="@dimen/_8pxh"
+                                android:layout_marginStart="@dimen/_9pxh"
+                                android:layout_marginTop="@dimen/_6pxv"
+                                android:layout_width="match_parent"
                                 android:singleLine="true"
-                                android:textAllCaps="false"
                                 android:text="Redeem drinks"
-                                style="@style/txtPoppinsmedium10" />
+                                style="@style/txtPoppinsmedium10"/>
+                            <View
+                                android:background="@drawable/rectangle_bg_blue_200_30_radius_5"
+                                android:id="@+id/viewRectangle2595"
+                                android:layout_gravity="start"
+                                android:layout_height="@dimen/_28pxv" android:layout_width="@dimen/_93pxh"/>
                         </FrameLayout>
                     </LinearLayout>
                     <ImageView android:id="@+id/imageGlobe"
@@ -178,10 +188,13 @@
                     android:layout_marginStart="@dimen/_10pxh"
                     android:layout_marginTop="@dimen/_7pxv"
                     android:layout_marginEnd="@dimen/_10pxh"
-                    android:layout_marginBottom="@dimen/_17pxv">
+                    android:layout_marginBottom="@dimen/_17pxv"
+                    android:orientation="vertical"
+                    tools:listitem="@layout/card_reward_history"
+                    >
 
                 </androidx.recyclerview.widget.RecyclerView>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

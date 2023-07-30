@@ -19,6 +19,8 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
+        // These too are not working
+
         button1 = findViewById(R.id.btnEditName)
         button1?.setOnClickListener {
             editName()

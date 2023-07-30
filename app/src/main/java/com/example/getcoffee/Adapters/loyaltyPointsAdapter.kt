@@ -18,7 +18,7 @@ class loyaltyPointsAdapter(list: List<LoyaltyPoint>) : RecyclerView.Adapter<loya
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): loyaltyPointsViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(com.example.getcoffee.R.layout.card_loyalty_coffee_cup, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.card_loyalty_coffee_cup, parent, false)
         return loyaltyPointsViewHolder(v)
     }
 

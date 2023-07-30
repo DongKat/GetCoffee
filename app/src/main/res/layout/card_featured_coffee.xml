@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/_10pxh"
+
+    app:cardCornerRadius="10dp"
+    >
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:background="@color/white_A700">
 
         <ImageView
             android:id="@+id/imageCoffee"
+            android:layout_width="@dimen/_120pxh"
             android:layout_height="@dimen/_90pxh"
-            android:layout_marginEnd="@dimen/_20pxh"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
             android:layout_marginStart="@dimen/_20pxh"
             android:layout_marginTop="@dimen/_20pxv"
-            android:layout_width="@dimen/_120pxh"
+            android:layout_marginEnd="@dimen/_20pxh"
             android:scaleType="fitXY"
             android:src="@drawable/img_americano"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -24,19 +32,19 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            style="@style/txtDMSansmedium14"
             android:id="@+id/txtCoffee"
-            android:layout_height="wrap_content"
+            style="@style/txtDMSansmedium14"
             android:layout_width="wrap_content"
-            android:layout_marginBottom="@dimen/_27pxv"
-            android:layout_marginEnd="@dimen/_22pxh"
-            android:layout_marginStart="@dimen/_22pxh"
-            android:layout_marginTop="@dimen/_12pxv"
-
-
+            android:layout_height="wrap_content"
             android:layout_below="@id/imageCoffee"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_22pxh"
+
+
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="@dimen/_22pxh"
+            android:layout_marginBottom="@dimen/_27pxv"
             android:text="Americano" />
     </RelativeLayout>
 

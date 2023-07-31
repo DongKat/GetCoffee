@@ -12,7 +12,7 @@
         android:layout_marginTop="@dimen/_19pxv"
         android:layout_width="match_parent"
         android:orientation="horizontal" style="@style/groupStylegray_51cornerRadius">
-        <ImageView android:id="@+id/imageMugcoffeePNGOne"
+        <ImageView android:id="@+id/imageCoffee"
             android:layout_height="@dimen/_61pxh"
             android:layout_marginBottom="@dimen/_17pxv"
             android:layout_marginStart="@dimen/_10pxh"

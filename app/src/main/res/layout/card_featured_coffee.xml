@@ -39,11 +39,9 @@
             android:layout_below="@id/imageCoffee"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:layout_marginStart="@dimen/_22pxh"
 
 
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="@dimen/_22pxh"
             android:layout_marginBottom="@dimen/_27pxv"
             android:text="Americano" />
     </RelativeLayout>

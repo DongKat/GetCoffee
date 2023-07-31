@@ -1,26 +1,28 @@
-package com.example.getcoffee
+package com.example.getcoffee.Fragments
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
+import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.cardview.widget.CardView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.getcoffee.Activities.RedeemRewardsActivity
 import com.example.getcoffee.Adapters.historyAdapter
 import com.example.getcoffee.Adapters.loyaltyPointsAdapter
+import com.example.getcoffee.Model.GlobalClass
 import com.example.getcoffee.Model.LoyaltyCard
 import com.example.getcoffee.Model.LoyaltyPoint
 import com.example.getcoffee.Model.RewardHistory
+import com.example.getcoffee.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -35,7 +37,7 @@ class rewardFragment : Fragment() {
     private var historyView: RecyclerView? = null
     private var cupCounterView: TextView? = null
 
-    private var loyaltyCard: LoyaltyCard? = null
+    private var loyaltyCard: LoyaltyCard = GlobalClass.loyaltyCard
     private var loyaltyPoints: Int = 0
 
 
@@ -51,29 +53,72 @@ class rewardFragment : Fragment() {
         val fragView = inflater.inflate(R.layout.fragment_rewards_page, container, false)
 
 
-        loyaltyPointsView = fragView.findViewById(R.id.loyaltyCupsView)
+        loyaltyPointsView = fragView.findViewById(R.id.loyaltyPointsView)
         historyView = fragView.findViewById(R.id.rewardsHistory)
 
         redeemDrinksButton = fragView.findViewById(R.id.btnRedeemDrinks)
 
 
-        // LoyaltyCard stuffs initializing
-        loyaltyCard = LoyaltyCard(0, 8, 2)
+        // Set total points
+        val totalPointsView = fragView.findViewById<TextView>(R.id.txtTotalPoints)
+        totalPointsView.text = loyaltyCard.getTotalPoint().toString()
+
 
         // LoyaltyCard initialize cup counter
-        cupCounterView = fragView.findViewById(R.id.cupCounter)
+        cupCounterView = fragView.findViewById(R.id.cupCounterView)
         cupCounterView?.text =
             loyaltyCard!!.curPoint.toString() + " / " + "${loyaltyCard!!.maxPoint.toString()}"
-
-
-
         setLoyaltyCardRecycler()
         setHistoryRecycler()
+
+
+        // Card view long click event
+        loyaltyPointsView!!.setOnClickListener(View.OnClickListener {
+            if (loyaltyCard.curPoint == loyaltyCard.maxPoint) {
+                GlobalClass.loyaltyCard.resetPoint()
+                loyaltyCard = GlobalClass.loyaltyCard
+                cupCounterView?.text =
+                    loyaltyCard!!.curPoint.toString() + " / " + "${loyaltyCard!!.maxPoint.toString()}"
+                GlobalClass.rewardHistory.add(
+                    RewardHistory(
+                        "StickerBoom",
+                        GlobalClass.currentDate,
+                        100
+                    )
+                )
+                setLoyaltyCardRecycler()
+                setHistoryRecycler()
+            }
+        })
 
         redeemDrinksButton?.setOnClickListener {
             val intent = Intent(activity, RedeemRewardsActivity::class.java)
             startActivity(intent)
         }
+
+        val cupsFrameView = fragView.findViewById<CardView>(R.id.frameloyaltycups)
+        // Set touch listener for cardview
+        cupsFrameView.setOnTouchListener(OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                if (loyaltyCard.curPoint == loyaltyCard.maxPoint) {
+                    GlobalClass.loyaltyCard.resetPoint()
+                    loyaltyCard = GlobalClass.loyaltyCard
+                    cupCounterView?.text =
+                        loyaltyCard!!.curPoint.toString() + " / " + "${loyaltyCard!!.maxPoint.toString()}"
+                    GlobalClass.rewardHistory.add(
+                        RewardHistory(
+                            "StickerBoom",
+                            GlobalClass.currentDate,
+                            100
+                        )
+                    )
+                    setLoyaltyCardRecycler()
+                    setHistoryRecycler()
+                }
+            }
+            false
+        })
+
 
 
 
@@ -81,7 +126,7 @@ class rewardFragment : Fragment() {
     }
 
     private fun setHistoryRecycler() {
-        val historyRewards = mutableListOf<RewardHistory>()
+        val historyRewards = GlobalClass.rewardHistory
 
         val linearLayoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
@@ -107,24 +152,4 @@ class rewardFragment : Fragment() {
     }
 
 
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment homeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            homeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

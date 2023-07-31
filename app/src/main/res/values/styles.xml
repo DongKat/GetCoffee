@@ -202,7 +202,7 @@
         <item name="android:textFontWeight" tools:targetApi="p">500</item>
     </style>
     <style name="txtDMSansmedium14">
-        <item name="android:textSize">@dimen/_14pxh</item>
+        <item name="android:textSize">@dimen/_18pxh</item>
         <item name="android:textColor">@color/gray_900</item>
         <item name="android:fontFamily">@font/dm_sans</item>
         <item name="android:textFontWeight" tools:targetApi="p">500</item>

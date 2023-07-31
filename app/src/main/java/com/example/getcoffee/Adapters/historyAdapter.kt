@@ -38,8 +38,8 @@ class historyAdapter(history: List<RewardHistory>) : RecyclerView.Adapter<histor
 
     override fun onBindViewHolder(holder: historyViewHolder, position: Int) {
         holder.coffeeName.text = historyList[position].coffeeName
-        holder.rewardDate.text = historyList[position].get_rewardDate()
-        holder.rewardPoints.text = historyList[position].rewardPoints.toString()
+        holder.rewardDate.text = historyList[position].rewardDate
+        holder.rewardPoints.text = "+ " + historyList[position].rewardPoints.toString() + "pts"
     }
 
 }

@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Activities.EditProfileActivity"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="16dp"
+            android:elevation="4dp"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <ImageView
+                android:id="@+id/imageBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_arrowdown"
+                android:layout_gravity="start"
+                android:padding="8dp"
+                android:onClick="onBackButtonClicked" />
+
+            <!-- Center the title text in a TextView -->
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Profile"
+                style="@style/txtPoppinsmedium22" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_gravity="end"
+                android:onClick="onCompleteClicked"
+                android:src="@drawable/img_check"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <!--            This layout is for the profile page-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/_32pxv"
+            android:layout_below="@id/toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_14pxh"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_42pxh"
+                    android:layout_height="@dimen/_42pxh"
+                    android:background="@drawable/rectangle_bg_gray_51_radius_21"
+                    android:layout_marginStart="@dimen/_20pxh"
+                    android:layout_marginEnd="@dimen/_20pxh"
+                    android:paddingHorizontal="@dimen/_12pxh"
+                    android:paddingVertical="@dimen/_12pxh"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img_user_bluegray_800"
+                    tools:ignore="ContentDescription" />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="0.2">
+
+                    <TextView
+                        android:id="@+id/txtFullNameLabel"
+                        style="@style/txtPoppinsmedium10_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:text="Fullname"
+                        app:layout_constraintStart_toStartOf="parent"
+
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtFullName"
+                        style="@style/txtPoppinssemibold14_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_below="@+id/txtFullNameLabel"
+                        android:text="Anderson"
+                        android:visibility="gone"
+
+
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtFullNameLabel" />
+                        <EditText
+                            android:id="@+id/edtFullName"
+                            android:imeOptions="actionDone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:hint="Anderson"
+
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtFullNameLabel" />
+
+
+
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_14pxh"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:background="@drawable/rectangle_bg_gray_51_radius_21"
+                    android:layout_height="@dimen/_42pxh"
+                    android:layout_width="@dimen/_42pxh"
+                    android:layout_marginStart="@dimen/_20pxh"
+                    android:layout_marginEnd="@dimen/_20pxh"
+                    android:paddingHorizontal="@dimen/_12pxh"
+                    android:paddingVertical="@dimen/_12pxh"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img_call" tools:ignore="ContentDescription" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="0.2">
+
+                    <TextView
+                        android:id="@+id/txtPhoneNumberLabel"
+                        style="@style/txtPoppinsmedium10_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:text="Phone number"
+                        app:layout_constraintStart_toStartOf="parent"
+
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtPhoneNumber"
+                        style="@style/txtPoppinssemibold14_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="(123) 456-7890"
+                        android:visibility="gone"
+
+                        android:layout_below="@+id/txtPhoneNumberLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPhoneNumberLabel" />
+                    <EditText
+                        android:id="@+id/edtPhoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:hint="(123) 456-7890"
+                        android:visibility="visible"
+
+                        android:layout_below="@+id/txtPhoneNumberLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPhoneNumberLabel" />
+
+
+
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_14pxh"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:background="@drawable/rectangle_bg_gray_51_radius_21"
+                    android:layout_height="@dimen/_42pxh"
+                    android:layout_width="@dimen/_42pxh"
+                    android:layout_marginStart="@dimen/_20pxh"
+                    android:layout_marginEnd="@dimen/_20pxh"
+                    android:paddingHorizontal="@dimen/_12pxh"
+                    android:paddingVertical="@dimen/_12pxh"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img_email"
+                    tools:ignore="ContentDescription" />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="0.2">
+
+                    <TextView
+                        android:id="@+id/txtEmailLabel"
+                        style="@style/txtPoppinsmedium10_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:text="Email"
+                        app:layout_constraintStart_toStartOf="parent"
+
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtEmail"
+                        style="@style/txtPoppinssemibold14_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="anderson@email.com"
+                        android:visibility="gone"
+
+                        android:layout_below="@+id/txtEmailLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEmailLabel" />
+                    <EditText
+                        android:id="@+id/edtEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:hint="anderson@email.com"
+                        android:visibility="visible"
+
+                        android:layout_below="@+id/txtEmailLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEmailLabel" />
+
+
+
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_14pxh"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_42pxh"
+                    android:layout_height="@dimen/_42pxh"
+                    android:background="@drawable/rectangle_bg_gray_51_radius_21"
+                    android:layout_marginStart="@dimen/_20pxh"
+                    android:layout_marginEnd="@dimen/_20pxh"
+                    android:paddingHorizontal="@dimen/_12pxh"
+                    android:paddingVertical="@dimen/_12pxh"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img_location"
+                    tools:ignore="ContentDescription" />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="0.2">
+
+                    <TextView
+                        android:id="@+id/txtAddressLabel"
+                        style="@style/txtPoppinsmedium10_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:text="Address"
+                        app:layout_constraintStart_toStartOf="parent"
+
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtAddress"
+                        style="@style/txtPoppinssemibold14_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="1234, Main Street, New York, USA"
+                        android:visibility="gone"
+
+                        android:layout_below="@+id/txtAddressLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtAddressLabel" />
+                    <EditText
+                        android:id="@+id/edtAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:hint="1234, Main Street, New York, USA"
+                        android:visibility="visible"
+
+                        android:layout_below="@+id/txtAddressLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtAddressLabel" />
+
+
+
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</FrameLayout>

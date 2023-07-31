@@ -46,7 +46,7 @@
             android:layout_marginBottom="@dimen/_21pxv"
             android:layout_marginStart="@dimen/_16pxh"
             android:layout_marginTop="@dimen/_10pxv"
-            android:layout_width="@dimen/_76pxh"
+            android:layout_width="wrap_content"
             android:paddingBottom="@dimen/_8pxv"
             android:paddingEnd="@dimen/_18pxh"
             android:paddingStart="@dimen/_17pxh"

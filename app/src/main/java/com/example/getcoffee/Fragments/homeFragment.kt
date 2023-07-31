@@ -1,4 +1,4 @@
-package com.example.getcoffee
+package com.example.getcoffee.Fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -16,12 +16,10 @@ import com.example.getcoffee.Adapters.loyaltyPointsAdapter
 import com.example.getcoffee.Model.CoffeeItem
 import com.example.getcoffee.Model.LoyaltyCard
 import com.example.getcoffee.Model.LoyaltyPoint
-
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import com.example.getcoffee.Activities.MyCartActivity
+import com.example.getcoffee.Activities.ProfileActivity
+import com.example.getcoffee.Model.GlobalClass
+import com.example.getcoffee.R
 
 /**
  * A simple [Fragment] subclass.
@@ -35,7 +33,7 @@ class homeFragment : Fragment() {
 
 
     private var loyaltyPoints: Int = 0
-    private var loyaltyCard: LoyaltyCard? = null
+    private var loyaltyCard: LoyaltyCard = GlobalClass.loyaltyCard
 
     private var loyaltyPointsView: RecyclerView? = null
     private var featuredItemsView: RecyclerView? = null
@@ -61,11 +59,10 @@ class homeFragment : Fragment() {
         loyaltyPointsView = fragView.findViewById(R.id.loyaltyPointsView)
 
         // LoyaltyCard stuffs initializing
-        loyaltyCard = LoyaltyCard(0, 8, 0)
 
         LoyaltyPoints = mutableListOf<LoyaltyPoint>()
-        for (i in 1..loyaltyCard!!.maxPoint) {
-            if (i <= loyaltyCard!!.curPoint) {
+        for (i in 1..loyaltyCard.maxPoint) {
+            if (i <= loyaltyCard.curPoint) {
                 LoyaltyPoints!!.add(LoyaltyPoint(R.drawable.img_light_coffee_cup))
 
             } else LoyaltyPoints!!.add(LoyaltyPoint(R.drawable.img_dark_coffee_cup))
@@ -85,10 +82,10 @@ class homeFragment : Fragment() {
 
         // Set up coffeeList
         coffeeList = mutableListOf<CoffeeItem>()
-        coffeeList!!.add(CoffeeItem("Americano", R.drawable.img_americano))
-        coffeeList!!.add(CoffeeItem("Cappuccino", R.drawable.img_cappuccino))
-        coffeeList!!.add(CoffeeItem("Mocha", R.drawable.img_mocha))
-        coffeeList!!.add(CoffeeItem("Latte", R.drawable.img_latte))
+        coffeeList!!.add(CoffeeItem( "Americano", R.drawable.img_americano, 1, 3.00, 1, 3, 1, 2, 3,))
+        coffeeList!!.add(CoffeeItem("Cappuccino", R.drawable.img_cappuccino, 1, 3.00, 1, 3, 1, 2, 3,))
+        coffeeList!!.add(CoffeeItem("Mocha", R.drawable.img_mocha, 1, 3.00, 1, 3, 1, 2, 3,))
+        coffeeList!!.add(CoffeeItem("Latte", R.drawable.img_latte, 1, 3.00, 1, 3, 1, 2, 3,))
 
         setFeaturedItemsRecycler(coffeeList)
 
@@ -111,23 +108,19 @@ class homeFragment : Fragment() {
         return fragView
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment homeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) = homeFragment().apply {
-            arguments = Bundle().apply {
-                putString(ARG_PARAM1, param1)
-                putString(ARG_PARAM2, param2)
-            }
+    override fun onResume() {
+        super.onResume()
+        // Refresh loyalty card cup counter
+        cupCounterView?.text =
+            loyaltyCard!!.curPoint.toString() + " / " + "${loyaltyCard!!.maxPoint.toString()}"
+        LoyaltyPoints = mutableListOf()
+        for (i in 1..loyaltyCard.maxPoint) {
+            if (i <= loyaltyCard.curPoint) {
+                LoyaltyPoints!!.add(LoyaltyPoint(R.drawable.img_light_coffee_cup))
+
+            } else LoyaltyPoints!!.add(LoyaltyPoint(R.drawable.img_dark_coffee_cup))
         }
+        setLoyaltyCardRecycler(LoyaltyPoints)
     }
 
     private fun setLoyaltyCardRecycler(LoyaltyPoints: MutableList<LoyaltyPoint>? = null) {
@@ -147,4 +140,3 @@ class homeFragment : Fragment() {
     }
 
 }
-

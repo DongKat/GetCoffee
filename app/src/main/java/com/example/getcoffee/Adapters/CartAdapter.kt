@@ -13,7 +13,7 @@ class CartItemsAdapter(private var cartItems: List<CoffeeItem>) : RecyclerView.A
     val cartList: ArrayList<CoffeeItem>? = cartItems as ArrayList<CoffeeItem>?
 
     class CartItemsViewHolder (view:View): RecyclerView.ViewHolder(view) {
-        var nameView: TextView? = view.findViewById(R.id.txtCoffee)
+        var nameView: TextView? = view.findViewById(R.id.txtCoffeeName)
         var priceView: TextView? = view.findViewById(R.id.txtPrice)
         var descView: TextView? = view.findViewById(R.id.txtDesc)
         var quantityView: TextView? = view.findViewById(R.id.txtXCounter)
@@ -21,10 +21,10 @@ class CartItemsAdapter(private var cartItems: List<CoffeeItem>) : RecyclerView.A
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartItemsViewHolder {
-        if (cartList!!.isEmpty())
-            return CartItemsViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card_empty_item, parent, false))
+        return if (cartList!!.isEmpty())
+            CartItemsViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card_empty_item, parent, false))
         else
-            return CartItemsViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card_cart_item, parent, false))
+            CartItemsViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card_cart_item, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -32,15 +32,11 @@ class CartItemsAdapter(private var cartItems: List<CoffeeItem>) : RecyclerView.A
     }
 
     override fun onBindViewHolder(holder: CartItemsViewHolder, position: Int) {
+        holder.imageView?.setImageResource(cartList!![position].image!!)
         holder.nameView?.text = cartList!![position].name
 
-        val tmpprice = cartList[position].get_totalPrice()
-        holder.priceView?.text = "$" + "%.2f".format(tmpprice)
-        val tmptxt = cartList[position].get_coffeeShot() + '|' +
-                cartList[position].get_size() + '|' +
-                cartList[position].get_temperature() + '|' +
-                cartList[position].get_ice()
-        holder.descView?.text = tmptxt
+        holder.priceView?.text = "$ " + "%.2f".format(cartList!![position].get_totalPrice())
+        holder.descView?.text = cartList[position].get_description()
         holder.quantityView?.text = "x" + cartList!![position].quantity.toString()
     }
 }

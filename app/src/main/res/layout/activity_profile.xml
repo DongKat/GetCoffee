@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ProfileActivity"
+    tools:context=".Activities.ProfileActivity"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
     <RelativeLayout
@@ -21,7 +21,7 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
             <ImageView
-                android:id="@+id/toolbarBackButton"
+                android:id="@+id/imgBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/img_arrowdown"
@@ -37,6 +37,14 @@
                 android:layout_gravity="center"
                 android:text="Profile"
                 style="@style/txtPoppinsmedium22" />
+
+            <ImageView
+                android:id="@+id/toolbarEditButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_gravity="end"
+                android:src="@drawable/img_edit"/>
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -90,36 +98,42 @@
 
                         android:layout_below="@+id/txtFullNameLabel"
                         android:text="Anderson"
-
                         android:visibility="visible"
+
+
+
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtFullNameLabel" />
-                    <EditText
-                        android:id="@+id/edtFullName"
-                        android:imeOptions="actionDone"
+                    <LinearLayout
+                        android:layout_below="@id/txtFullNameLabel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
-                        android:hint="Anderson"
+                        android:orientation="horizontal"
                         android:visibility="gone"
 
-                        android:layout_below="@+id/txtFullNameLabel"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/txtFullNameLabel" />
+                        >
+                        <EditText
+                            android:id="@+id/edtFullName"
+                            android:imeOptions="actionDone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:hint="Anderson"
+
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtFullNameLabel" />
+
+                        <ImageView
+                            android:id="@+id/finishEdit"
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/img_check" />
+                    </LinearLayout>
 
 
 
                 </RelativeLayout>
-
-                <ImageView
-                    android:id="@+id/btnEditName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="@dimen/_20pxh"
-                    android:layout_marginEnd="@dimen/_20pxh"
-                    android:padding="8dp"
-                    android:src="@drawable/img_edit" />
 
 
             </LinearLayout>
@@ -186,16 +200,6 @@
 
                 </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/btnEditPhone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="@dimen/_20pxh"
-                    android:layout_marginEnd="@dimen/_20pxh"
-                    android:padding="8dp"
-                    android:src="@drawable/img_edit" />
-
 
             </LinearLayout>
 
@@ -261,15 +265,6 @@
 
                 </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/btnEditEmail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="@dimen/_20pxh"
-                    android:layout_marginEnd="@dimen/_20pxh"
-                    android:padding="8dp"
-                    android:src="@drawable/img_edit" />
 
 
             </LinearLayout>
@@ -335,16 +330,6 @@
 
 
                 </RelativeLayout>
-
-                <ImageView
-                    android:id="@+id/btnEditAddress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="@dimen/_20pxh"
-                    android:layout_marginEnd="@dimen/_20pxh"
-                    android:padding="8dp"
-                    android:src="@drawable/img_edit" />
 
 
             </LinearLayout>

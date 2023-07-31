@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".orderFragment">
+    tools:context=".Fragments.orderFragment">
 
-    <RelativeLayout android:id="@+id/frameRedeemRewards"
-        android:layout_height="match_parent"
+    <RelativeLayout
+        android:id="@+id/frameRedeemRewards"
         android:layout_width="match_parent"
-        android:layout_marginBottom="@dimen/_23pxv"
-        android:layout_marginEnd="@dimen/_22pxh"
+        android:layout_height="match_parent"
         android:layout_marginStart="@dimen/_22pxh"
-        android:layout_marginTop="@dimen/_23pxv">
+        android:layout_marginTop="@dimen/_23pxv"
+        android:layout_marginEnd="@dimen/_22pxh"
+        android:layout_marginBottom="@dimen/_23pxv">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -23,46 +25,94 @@
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-            <ImageView
-                android:id="@+id/toolbarBackButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/img_arrowdown"
-                android:layout_gravity="start"
-                android:padding="8dp"
-                android:onClick="onBackButtonClicked" />
-
             <!-- Center the title text in a TextView -->
             <TextView
                 android:id="@+id/toolbarTitle"
+                style="@style/txtPoppinsmedium22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="My Orders"
-                style="@style/txtPoppinsmedium22" />
+                android:text="My Orders" />
 
         </androidx.appcompat.widget.Toolbar>
 
-        <com.google.android.material.tabs.TabLayout
+        <RelativeLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/toolbar"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+            android:layout_marginEnd="@dimen/_30pxh"
+            android:layout_marginStart="@dimen/_30pxh"
+            android:layout_below="@id/toolbar">
+
+            <TextView
+                android:id="@+id/txtOngoing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ongoing"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/poppins"
+                android:textSize="@dimen/_20pxh"
+
+                />
+            <TextView
+                android:id="@+id/txtHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="History"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/poppins"
+                android:textSize="@dimen/_20pxh"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/fakeTabBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tabLayout"
+            android:layout_marginEnd="@dimen/_15pxh"
+            android:layout_marginStart="@dimen/_29pxh"
+            >
+
+            <ImageView
+                android:id="@+id/fakeTabBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+
+                android:scaleType="fitXY"
+                android:src="@drawable/img_small_bar" />
 
 
-        <!-- Add a recyler view-->
+        </RelativeLayout>
+        <View
+            android:id="@+id/lineLineOne"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_2pxv"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/_5pxh"
+            android:layout_marginEnd="@dimen/_5pxh"
+            android:background="@color/black_900_1e"
+            android:layout_below="@id/fakeTabBarLayout"
+            />
+
+
+
+
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerMyOrders"
+            android:id="@+id/order_recycler_view"
+            itemSpace="@{@dimen/_35pxh}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tabLayout"
-            android:layout_marginTop="@dimen/_14pxh"
+            android:layout_marginTop="@dimen/_20pxh"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            itemSpace="@{@dimen/_35pxh}"
-            tools:itemCount="3" />
+            tools:itemCount="3"
+            tools:listitem="@layout/card_order_item" />
 
     </RelativeLayout>
 

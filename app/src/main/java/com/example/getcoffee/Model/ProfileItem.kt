@@ -1,9 +1,9 @@
 package com.example.getcoffee.Model
 
 class ProfileItem(
-    val name: String?,
-    val email: String?,
-    val phone: String?,
-    val address: String?
+    var name: String?,
+    var email: String?,
+    var phone: String?,
+    var address: String?
 ) {
 }

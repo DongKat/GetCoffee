@@ -18,7 +18,7 @@ public class CoffeeItem()
     var temperature: Int? = null
     var ice: Int? = null
 
-    constructor(name: String?, image: Int?, description: String?, quantity: Int?, price: Double?, point: Int?, size: Int?, coffeeShot: Int?, temperature: Int?, ice: Int?) : this() {
+    constructor(name: String?, image: Int?, quantity: Int?, price: Double?, point: Int?, size: Int?, coffeeShot: Int?, temperature: Int?, ice: Int?) : this() {
         this.name = name
         this.image = image
         this.description = description
@@ -28,7 +28,23 @@ public class CoffeeItem()
         this.size = size
         this.coffeeShot = coffeeShot
         this.temperature = temperature
-        this.ice = ice
+        if (temperature == 1) {
+            this.ice = 0
+        } else {
+            this.ice = ice
+        }
+    }
+
+    constructor(reward: RedeemReward) : this() {
+        this.name = reward.rewardName
+        this.image = reward.rewardImage
+        this.quantity = 0
+        this.price = 0.00
+        this.point = 12
+        this.size = 1
+        this.coffeeShot = 1
+        this.temperature = 1
+        this.ice = 0
     }
 
     constructor(name:String?, image:Int?) : this() {
@@ -83,12 +99,24 @@ public class CoffeeItem()
             return "Half Ice"
         } else if (ice == 3) {
             return "Full ice"
-        }else {
+        } else if (ice == 0) {
+            return "No ice"
+        } else {
             return "N/A"
         }
+    }
+
+    fun get_description(): String{
+        return get_coffeeShot() + "|" + get_size() + "|" + get_temperature() + "|" + get_ice()
     }
 
     fun get_totalPrice(): Double {
         return price!! * quantity!!
     }
+
+    fun get_totalPoint(): Int {
+        return point!! * quantity!!
+    }
+
+
 }

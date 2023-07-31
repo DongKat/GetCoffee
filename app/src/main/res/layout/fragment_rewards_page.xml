@@ -2,7 +2,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".rewardFragment"
+    tools:context=".Fragments.rewardFragment"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
     <LinearLayout android:gravity="center_horizontal"
@@ -67,7 +67,7 @@
 
                         <!-- TODO: Implement RecyclerView for loyalty card -->
 
-                        <androidx.cardview.widget.CardView android:id="@+id/frameStackgroup7011"
+                        <androidx.cardview.widget.CardView android:id="@+id/frameloyaltycups"
                             android:layout_gravity="center_horizontal"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/_17pxv"
@@ -149,7 +149,7 @@
 
                         <FrameLayout
                             android:id="@+id/btnRedeemDrinks"
-                            android:layout_width="@dimen/_93pxh"
+                            android:layout_width="wrap_content"
                             android:layout_height="@dimen/_28pxv"
                             android:layout_marginTop="@dimen/_40pxv"
                             android:layout_marginEnd="@dimen/_23pxh"
@@ -196,7 +196,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_10pxh"
                     android:layout_marginStart="@dimen/_10pxh"
-                    android:layout_marginTop="@dimen/_7pxv"
+                    android:layout_marginTop="@dimen/_14pxv"
                     android:layout_width="wrap_content"
                     android:singleLine="true"
                     android:text="Rewards history"

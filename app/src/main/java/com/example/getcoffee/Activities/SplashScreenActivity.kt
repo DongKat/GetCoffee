@@ -1,10 +1,13 @@
-package com.example.getcoffee
+package com.example.getcoffee.Activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.example.getcoffee.R
 
+@SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
 
     private val SPLASH_DISPLAY_LENGTH = 1000 // Duration of splash screen in milliseconds (2 seconds)

@@ -1,6 +1,6 @@
-package com.example.getcoffee
+package com.example.getcoffee.Activities
 
-import android.graphics.Color
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -11,12 +11,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.getcoffee.Adapters.CartItemsAdapter
 import com.example.getcoffee.Callbacks.SwipeToDeleteCallback
 import com.example.getcoffee.Model.CoffeeItem
-import com.google.android.material.snackbar.Snackbar
+import com.example.getcoffee.Model.GlobalClass
+import com.example.getcoffee.Model.OrderItem
+import com.example.getcoffee.Model.RewardHistory
+import com.example.getcoffee.R
 
 
 class MyCartActivity : AppCompatActivity() {
 
-    var cartItems: MutableList<CoffeeItem>? = null
+    var cartItems: MutableList<CoffeeItem> = GlobalClass.cart
     var totalCartPrice: Double? = 0.00
 
     var cartRecyclerView: RecyclerView? = null
@@ -30,36 +33,10 @@ class MyCartActivity : AppCompatActivity() {
         // Get recycler view
         cartRecyclerView = findViewById(R.id.recyclerMyCart)
         cartPrice = findViewById(R.id.txtTotalPrice)
-
-        cartItems = mutableListOf<CoffeeItem>()
-        cartItems!!.add(
-            CoffeeItem(
-                "Americano",
-                R.drawable.img_americano,
-                "N/A",
-                2,
-                3.00,
-                12,
-                1,
-                1,
-                1,
-                2
-            )
-        )
-        cartItems!!.add(
-            CoffeeItem(
-                "Cappuccino",
-                R.drawable.img_cappuccino,
-                "N/A",
-                1,
-                3.00,
-                12,
-                1,
-                1,
-                1,
-                2
-            )
-        )
+        val button = findViewById<TextView>(R.id.btnCheckout)
+        button.setOnClickListener {
+            finish()
+        }
 
         // Set adapter
         setCartRecyclerView()
@@ -87,6 +64,28 @@ class MyCartActivity : AppCompatActivity() {
 
         val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
         itemTouchHelper.attachToRecyclerView(cartRecyclerView)
+
+        val checkoutButton = findViewById<TextView>(R.id.btnCheckout)
+        checkoutButton.setOnClickListener {
+            // Add order
+            for (item in cartItems!!) {
+                val orderItem = OrderItem(item)
+                GlobalClass.addOrderToOnGoing(orderItem)
+                val history = RewardHistory(item.name, GlobalClass.currentDate, item.get_totalPoint())
+                GlobalClass.addRewardHistory(history)
+            }
+            // Add points and reward history
+            GlobalClass.addPointToLoyaltyCard()
+            // Clear cart
+            GlobalClass.clearCart()
+
+
+
+
+            val intent = Intent(this, OrderSucessActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
 
